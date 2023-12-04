@@ -23,16 +23,23 @@ function App() {
   const introText = `Welcome Emily and Sharon to today’s session. Today we will practice
   “mindful listening exercise".`;
 
-  const activeListeningText = `In this exercise, we will practice listening in a way that is different from how we usually listen. We will do this in pairs - each person taking turns to be the speaker and the listener.`;
+  const text3 =
+    "Mindful listening is about being fully present and attentive to the speaker, without judgment or distraction. It involves listening with compassion and openness, and reflecting back what you hear to show understanding and empathy. Let's practice.";
 
-  const text3 = "Emily first you are the speaker. Sharon, you are the listener.";
-
-  const text4 =
-    "Emily, this will be a monologue. You get to speak uninterrupted for 3 minutes on a prompt. If you run out of things to say, that is fine; you can just sit in silence and whenever you have something to say, you may continue speaking again.";
-
+  const text4 = "Emily, first you are the speaker. Sharon, you are the listener. ";
   const text5 =
-    "Your job is to listen. When you listen, give your full attention to the speaker. You may not ask questions during these 3 minutes. You may acknowledge with facial expressions, by nodding your head, or by saying, “I see,” or “I understand.” You may not speak except to acknowledge";
-  const audios = [introText, activeListeningText, text3, text4, text5];
+    "Emily: You get to speak uninterrupted for 30 sec on a prompt. If you run out of things to say, that is fine; you can just sit in silence and whenever you have something to say, you may continue speaking again. ";
+
+  const text6 =
+    "Sharon: Your job is to listen. When you listen, give your full attention to the speaker. After Emily is done speaking, you can repeat back to her what you heard and felt. ";
+
+  const text7 = "Emily, your prompt is:  What are your insecurities? Start speaking...";
+
+  const text8 = "Thank you all for participating.\nLet’s debrief now. ";
+
+  const text9 = "How did you feel as the speaker and the listener? What was easy or difficult?";
+
+  const audios = [introText, text3, text4, text5, text6, text7, text8, text9];
 
   // const start = () => {
   //   speak({ text: introText, voice: voices[0] });
@@ -61,14 +68,20 @@ function App() {
             sequence={[
               introText,
               2000,
-              activeListeningText,
-              1000,
               text3,
               1000,
               text4,
-              4000,
+              1000,
               text5,
-              4000,
+              1000,
+              text6,
+              1000,
+              text7,
+              30000,
+              text8,
+              1000,
+              text9,
+              20000,
             ]}
             omitDeletionAnimation="true"
           />
@@ -76,16 +89,16 @@ function App() {
 
         {/* <Button onClick={listen}>{listening ? "Listening" : "Listen"} </Button> */}
         {/* <p>{response}</p> */}
-        <Button
-          className="button"
-          onClick={() => {
-            speak({ text: audios[index], voice: voices[1] });
-            setIndex(index + 1);
-          }}
-        >
-          Start
-        </Button>
       </div>
+      <Button
+        className="button"
+        onClick={() => {
+          speak({ text: audios[index], voice: voices[1] });
+          setIndex(index + 1);
+        }}
+      >
+        Play audio
+      </Button>
     </div>
   );
 }

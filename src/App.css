@@ -10,3 +10,8 @@
   font-family: "Inter", sans-serif;
   font-size: 40px;
 }
+
+.button {
+  display: "absolute";
+  bottom: 0;
+}
